@@ -10,7 +10,7 @@ const Arts = (b) => {
           onClick={() => navigate(`/article/${b.article.id}`)}
           to={`/article/${b.article.title}`}
         >
-          <div className="flex text-white text-opacity-50 text-sm font-thin hover:text-orange-300 transition">
+          <div className="flex text-white text-opacity-50 text-sm font-thin hover:text-orange-300 transition px-5">
             <a
               href={"https://reddit.com/r/" + b.article.subreddit}
               target="_blank"
@@ -20,11 +20,11 @@ const Arts = (b) => {
             </a>
           </div>
           <div className="flex p-5">
-            <div className="flex text-start text-white md:text-xl">
+            <div className="flex text-start text-white md:text-lg">
               {b.article.title}
             </div>
           </div>
-          <div className="flex w-full text-white text-opacity-50 items-center gap-1 text-sm h-full justify-end">
+          <div className="flex w-full text-white text-opacity-50 items-center gap-1 text-sm h-full justify-end px-5">
             <IoIosTrendingUp className="text-green-500" />
             {b.article.ups}
           </div>

@@ -5,14 +5,14 @@ import { FcReddit } from "react-icons/fc";
 
 const Home = ({ articles, setArticles, subreddit, setSubreddit }) => {
   const updateSubreddit = (e) => setSubreddit(e?.target?.value);
-  const debouncedOnChange = debounce(updateSubreddit, 500);
+  const debouncedOnChange = debounce(updateSubreddit, 1000);
 
   return (
     <>
-      <div className="min-h-screen bg-neutral-900 p-10 gap-10">
+      <div className="min-h-screen bg-neutral-900 p-5">
         <div className="flex w-full relative p-5">
           <div className="flex justify-center items-center">
-            <FcReddit className="text-5xl absolute" />
+            <FcReddit className="text-7xl absolute" />
           </div>
           <div className="flex w-full justify-center">
             <input
@@ -23,7 +23,7 @@ const Home = ({ articles, setArticles, subreddit, setSubreddit }) => {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-4 gap-5">
+        <div className="flex flex-col gap-5">
           {articles != null
             ? articles.map((article, index) => {
                 return (
