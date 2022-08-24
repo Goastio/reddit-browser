@@ -1,19 +1,34 @@
 import { IoIosTrendingUp } from "react-icons/io";
-const Arts = (props) => {
+import { useNavigate } from "react-router-dom";
+const Arts = (b) => {
+  const navigate = useNavigate();
   return (
     <>
-      <div className="flex relative bg-white bg-opacity-10 w-full rounded-md p-5">
-        <a
-          href={"https://reddit.com" + props.article.permalink}
-          target="_blank"
-          rel="noreferrer"
+      <div className="flex bg-white bg-opacity-10 w-full rounded-md">
+        <button
+          className="flex flex-col w-full p-5"
+          onClick={() => navigate(`/article/${b.article.id}`)}
+          to={`/article/${b.article.title}`}
         >
-          <div className="text-white md:text-2xl">{props.article.title}</div>
-        </a>
-        <div className="flex absolute w-full text-white text-opacity-50 justify-end items-center bottom-0 gap-1 text-sm px-10">
-          <IoIosTrendingUp className="text-green-500" />
-          {props.article.ups}
-        </div>
+          <div className="flex text-white text-opacity-50 text-sm font-thin hover:text-orange-300 transition">
+            <a
+              href={"https://reddit.com/r/" + b.article.subreddit}
+              target="_blank"
+              rel="noreferrer"
+            >
+              r/{b.article.subreddit}
+            </a>
+          </div>
+          <div className="flex p-5">
+            <div className="flex text-start text-white md:text-xl">
+              {b.article.title}
+            </div>
+          </div>
+          <div className="flex w-full text-white text-opacity-50 items-center gap-1 text-sm h-full justify-end">
+            <IoIosTrendingUp className="text-green-500" />
+            {b.article.ups}
+          </div>
+        </button>
       </div>
     </>
   );

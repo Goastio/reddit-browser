@@ -9,7 +9,7 @@ const Home = ({ articles, setArticles, subreddit, setSubreddit }) => {
 
   return (
     <>
-      <div className="min-h-screen bg-neutral-900 p-10 flex flex-col gap-10">
+      <div className="min-h-screen bg-neutral-900 p-10 gap-10">
         <div className="flex w-full relative p-5">
           <div className="flex justify-center items-center">
             <FcReddit className="text-5xl absolute" />
@@ -17,17 +17,17 @@ const Home = ({ articles, setArticles, subreddit, setSubreddit }) => {
           <div className="flex w-full justify-center">
             <input
               type="text"
-              className="text-white flex w-2/3 bg-white bg-opacity-10 p-5 hover:cursor-pointer focus:cursor-default"
+              className="text-white rounded-md flex w-2/3 bg-white bg-opacity-10 p-5 hover:cursor-pointer focus:cursor-text focus:outline-white focus:outline-2 outline-none transition"
               onChange={debouncedOnChange}
             />
           </div>
         </div>
 
-        <div className="grid md:grid-cols-3 mx-auto justify-center gap-5">
+        <div className="grid md:grid-cols-4 gap-5">
           {articles != null
             ? articles.map((article, index) => {
                 return (
-                  <div className="flex">
+                  <div className="">
                     <Arts
                       key={index}
                       article={article.data}

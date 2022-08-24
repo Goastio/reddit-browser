@@ -1,6 +1,8 @@
 import "./index.css";
 import { useState, useEffect } from "react";
 import Home from "./pages/Home";
+import { Route, Routes } from "react-router-dom";
+import ArticlePage from "./pages/ArticlePage";
 
 function App() {
   const [articles, setArticles] = useState([]);
@@ -22,12 +24,34 @@ function App() {
 
   return (
     <>
-      <Home
-        articles={articles}
-        setArticles={setArticles}
-        subreddit={subreddit}
-        setSubreddit={setSubreddit}
-      />
+      <div className="flex w-full bg-neutral-900">
+        <div className="flex w-full md:w-2/3 mx-auto">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Home
+                  articles={articles}
+                  setArticles={setArticles}
+                  subreddit={subreddit}
+                  setSubreddit={setSubreddit}
+                />
+              }
+            />
+            <Route
+              path="/article/:id"
+              element={
+                <ArticlePage
+                  articles={articles}
+                  setArticles={setArticles}
+                  subreddit={subreddit}
+                  setSubreddit={setSubreddit}
+                />
+              }
+            />
+          </Routes>
+        </div>
+      </div>
     </>
   );
 }
