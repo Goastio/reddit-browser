@@ -27,14 +27,12 @@ const Home = ({ articles, setArticles, subreddit, setSubreddit }) => {
           {articles != null
             ? articles.map((article, index) => {
                 return (
-                  <div className="">
-                    <Arts
-                      key={index}
-                      article={article.data}
-                      subreddit={subreddit}
-                      setSubreddit={setSubreddit}
-                    />
-                  </div>
+                  <Arts
+                    key={index}
+                    article={article.data}
+                    subreddit={subreddit}
+                    setSubreddit={setSubreddit}
+                  />
                 );
               })
             : ""}

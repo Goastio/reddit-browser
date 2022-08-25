@@ -7,6 +7,7 @@ import ArticlePage from "./pages/ArticlePage";
 function App() {
   const [articles, setArticles] = useState([]);
   const [subreddit, setSubreddit] = useState("popular");
+  const [replies, setReplies] = useState("");
 
   useEffect(() => {
     fetch("https://www.reddit.com/r/" + subreddit + ".json").then((res) => {
@@ -46,6 +47,8 @@ function App() {
                   setArticles={setArticles}
                   subreddit={subreddit}
                   setSubreddit={setSubreddit}
+                  replies={replies}
+                  setReplies={setReplies}
                 />
               }
             />
