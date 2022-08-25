@@ -1,25 +1,14 @@
 import React from "react";
 import Arts from "../components/Arts";
-import debounce from "lodash.debounce";
+
 
 const Home = ({ articles, subreddit, setSubreddit }) => {
-  const updateSubreddit = (e) => setSubreddit(e?.target?.value);
-  const debouncedOnChange = debounce(updateSubreddit, 1000);
+
 
   return (
     <>
       <div className="min-h-screen bg-neutral-900 p-5">
-        <div className="flex w-full relative p-5">
-          <div className="flex w-full justify-center">
-            <input
-              type="text"
-              className="text-white rounded-md flex md:w-1/3 bg-white bg-opacity-10 p-5 hover:cursor-pointer focus:cursor-text focus:outline-white focus:outline-2 outline-none transition"
-              onChange={debouncedOnChange}
-            />
-          </div>
-        </div>
-
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-5 w-full">
           {articles != null
             ? articles.map((article, index) => {
                 return (

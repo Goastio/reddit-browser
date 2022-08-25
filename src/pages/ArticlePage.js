@@ -17,8 +17,6 @@ const ArticlePage = ({
             article={article.data}
             subreddit={subreddit}
             setSubreddit={setSubreddit}
-            replies={replies}
-            setReplies={setReplies}
           />
         );
       })}

@@ -3,11 +3,11 @@ import { useState, useEffect } from "react";
 import Home from "./pages/Home";
 import { Route, Routes } from "react-router-dom";
 import ArticlePage from "./pages/ArticlePage";
+import Nav from "./components/Nav";
 
 function App() {
   const [articles, setArticles] = useState([]);
   const [subreddit, setSubreddit] = useState("popular");
-  const [replies, setReplies] = useState("");
 
   useEffect(() => {
     fetch("https://www.reddit.com/r/" + subreddit + ".json").then((res) => {
@@ -25,7 +25,13 @@ function App() {
 
   return (
     <>
-      <div className="flex w-full bg-neutral-900">
+      <div className="flex flex-col w-full bg-neutral-900">
+        <Nav
+          articles={articles}
+          setArticles={setArticles}
+          subreddit={subreddit}
+          setSubreddit={setSubreddit}
+        />
         <div className="flex w-full md:w-2/3 mx-auto">
           <Routes>
             <Route
@@ -47,8 +53,6 @@ function App() {
                   setArticles={setArticles}
                   subreddit={subreddit}
                   setSubreddit={setSubreddit}
-                  replies={replies}
-                  setReplies={setReplies}
                 />
               }
             />
