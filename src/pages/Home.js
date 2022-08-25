@@ -17,7 +17,7 @@ const Home = ({ articles, subreddit, setSubreddit }) => {
           <div className="flex w-full justify-center">
             <input
               type="text"
-              className="text-white rounded-md flex w-1/3 bg-white bg-opacity-10 p-5 hover:cursor-pointer focus:cursor-text focus:outline-white focus:outline-2 outline-none transition"
+              className="text-white rounded-md flex md:w-1/3 bg-white bg-opacity-10 p-5 hover:cursor-pointer focus:cursor-text focus:outline-white focus:outline-2 outline-none transition"
               onChange={debouncedOnChange}
             />
           </div>
