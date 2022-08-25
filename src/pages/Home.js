@@ -1,7 +1,6 @@
 import React from "react";
 import Arts from "../components/Arts";
 import debounce from "lodash.debounce";
-import { FcReddit } from "react-icons/fc";
 
 const Home = ({ articles, subreddit, setSubreddit }) => {
   const updateSubreddit = (e) => setSubreddit(e?.target?.value);
@@ -11,9 +10,6 @@ const Home = ({ articles, subreddit, setSubreddit }) => {
     <>
       <div className="min-h-screen bg-neutral-900 p-5">
         <div className="flex w-full relative p-5">
-          <div className="flex justify-center items-center">
-            <FcReddit className="text-7xl absolute" />
-          </div>
           <div className="flex w-full justify-center">
             <input
               type="text"
