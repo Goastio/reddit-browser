@@ -25,38 +25,42 @@ function App() {
 
   return (
     <>
-      <div className="flex flex-col w-full bg-neutral-900">
+      <div className="min-h-screen bg-neutral-900 flex flex-col">
         <Nav
           articles={articles}
           setArticles={setArticles}
           subreddit={subreddit}
           setSubreddit={setSubreddit}
         />
-        <div className="flex w-full md:w-2/3 mx-auto">
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <Home
-                  articles={articles}
-                  setArticles={setArticles}
-                  subreddit={subreddit}
-                  setSubreddit={setSubreddit}
-                />
-              }
-            />
-            <Route
-              path="/article/:id"
-              element={
-                <ArticlePage
-                  articles={articles}
-                  setArticles={setArticles}
-                  subreddit={subreddit}
-                  setSubreddit={setSubreddit}
-                />
-              }
-            />
-          </Routes>
+        <div className="flex w-full my-auto">
+          <div className="flex w-full md:w-2/3 mx-auto">
+            <Routes>
+              <Route
+                exact
+                path="/"
+                element={
+                  <Home
+                    articles={articles}
+                    setArticles={setArticles}
+                    subreddit={subreddit}
+                    setSubreddit={setSubreddit}
+                  />
+                }
+              />
+              <Route
+                exact
+                path="/article/:id"
+                element={
+                  <ArticlePage
+                    articles={articles}
+                    setArticles={setArticles}
+                    subreddit={subreddit}
+                    setSubreddit={setSubreddit}
+                  />
+                }
+              />
+            </Routes>
+          </div>
         </div>
       </div>
     </>
