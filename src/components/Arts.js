@@ -6,7 +6,7 @@ const Arts = (b) => {
     <>
       <div className="flex bg-white bg-opacity-10 w-full mx-auto md:w-2/3 rounded-md">
         <button
-          className="flex flex-col w-full p-5"
+          className="flex flex-col w-full p-5" 
           onClick={() => navigate(`/article/${b.article.id}`)}
           to={`/article/${b.article.title}`}
         >
