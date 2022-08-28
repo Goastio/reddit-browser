@@ -36,16 +36,17 @@ const ArticleInfo = (b) => {
             {b.article.selftext}
           </div>
           <div className="flex w-full justify-end gap-5">
-            <div className="flex text-white text-opacity-50 items-center gap-1">
+            <div className="flex text-white text-opacity-50 items-center gap-1 p-2.5 bg-white bg-opacity-10 rounded-md">
               <IoIosTrendingUp className="text-green-500" />
               {b.article.ups}
-            </div>{" "}
-            <div className="flex text-white text-opacity-50 items-center gap-1">
+            </div>
+            <div className="flex text-white text-opacity-50 items-center gap-1 bg-white bg-opacity-10 rounded-md p-2.5">
               <FaComments />
               {b.article.num_comments}
             </div>
           </div>
-          <div className="flex flex-col text-white justify-end text-opacity-50  break-all gap-5">
+
+          <div className="flex flex-col text-white justify-end text-opacity-50 break-all gap-5">
             {b.comments.slice(0, 10).map((comment) => {
               const { data } = comment;
               return (
