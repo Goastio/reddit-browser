@@ -1,5 +1,6 @@
 import debounce from "lodash.debounce";
 import { useNavigate } from "react-router-dom";
+import { BiArrowBack } from 'react-icons/bi'
 
 const Nav = ({ setSubreddit }) => {
   const updateSubreddit = (e) => setSubreddit(e?.target?.value);
@@ -14,9 +15,9 @@ const Nav = ({ setSubreddit }) => {
             onClick={() => {
               navigate(-1);
             }}
-            className="text-white"
+            className="text-white text-2xl bg-white bg-opacity-10 rounded-full p-2.5 hover:bg-opacity-20 transition"
           >
-            Chicken
+            <BiArrowBack />
           </button>
         </div>
         <input

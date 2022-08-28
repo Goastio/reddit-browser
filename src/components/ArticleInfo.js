@@ -28,7 +28,7 @@ const ArticleInfo = (b) => {
                     "https://reddit.com" + b.article.permalink;
                 }}
               >
-                Watch on Reddit
+                <div className="flex text-2xl text-white text-opacity-50 hover:text-orange-400 transition">Watch on Reddit</div>
               </button>
             )}
           </div>
@@ -46,15 +46,18 @@ const ArticleInfo = (b) => {
             </div>
           </div>
 
-          <div className="flex flex-col text-white justify-end text-opacity-50 break-all gap-5">
-            {b.comments.slice(0, 10).map((comment) => {
-              const { data } = comment;
-              return (
-                <div key={data.id} className="">
-                  {data.body}
-                </div>
-              );
-            })}
+          <div className="flex flex-col bg-white bg-opacity-10 rounded-md p-5 text-white justify-end break-all gap-5">
+            <div className="text-opacity-75">Comments</div>
+            <div className="text-white ">
+              {b.comments.slice(0, 10).map((comment) => {
+                const { data } = comment;
+                return (
+                  <div key={data.id} className="">
+                    <li>{data.body}</li>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
