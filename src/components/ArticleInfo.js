@@ -32,7 +32,7 @@ const ArticleInfo = (b) => {
               </button>
             )}
           </div>
-          <div className="flex text-white text-opacity-50">
+          <div className="flex break-all text-white text-opacity-50">
             {b.article.selftext}
           </div>
           <div className="flex w-full justify-end gap-5">
@@ -48,7 +48,7 @@ const ArticleInfo = (b) => {
 
           <div className="flex flex-col bg-white bg-opacity-10 rounded-md p-5 text-white justify-end break-all gap-5">
             <div className="text-opacity-75">Comments</div>
-            <div className="text-white ">
+            <div className="flex text-white flex-col gap-5">
               {b.comments.slice(0, 10).map((comment) => {
                 const { data } = comment;
                 return (
