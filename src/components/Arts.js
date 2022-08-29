@@ -5,7 +5,7 @@ const Arts = (b) => {
   const navigate = useNavigate();
   return (
     <>
-      <div className="flex bg-white bg-opacity-10 w-full mx-auto md:w-2/3 rounded-md">
+      <div className="flex bg-white bg-opacity-10 w-full mx-auto max-w-screen-md rounded-md">
         <button
           className="flex flex-col w-full p-5"
           onClick={() => navigate(`/article/${b.article.id}`)}
