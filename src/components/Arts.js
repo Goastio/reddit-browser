@@ -1,3 +1,4 @@
+import { FaComments } from "react-icons/fa";
 import { IoIosTrendingUp } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 const Arts = (b) => {
@@ -6,7 +7,7 @@ const Arts = (b) => {
     <>
       <div className="flex bg-white bg-opacity-10 w-full mx-auto md:w-2/3 rounded-md">
         <button
-          className="flex flex-col w-full p-5" 
+          className="flex flex-col w-full p-5"
           onClick={() => navigate(`/article/${b.article.id}`)}
           to={`/article/${b.article.title}`}
         >
@@ -25,9 +26,15 @@ const Arts = (b) => {
               {b.article.title}
             </div>
           </div>
-          <div className="flex w-full text-white text-opacity-50 items-center gap-1 text-sm h-full justify-end px-5">
-            <IoIosTrendingUp className="text-green-500" />
-            {b.article.ups}
+          <div className="flex w-full justify-end gap-5 text-sm">
+            <div className="flex text-white text-opacity-50 items-center gap-1 p-2.5 bg-white bg-opacity-10 rounded-md">
+              <IoIosTrendingUp className="text-green-500" />
+              {b.article.ups}
+            </div>
+            <div className="flex text-white text-opacity-50 items-center gap-1 bg-white bg-opacity-10 rounded-md p-2.5">
+              <FaComments />
+              {b.article.num_comments}
+            </div>
           </div>
         </button>
       </div>
