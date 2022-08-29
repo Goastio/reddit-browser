@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ArticleInfo from "../components/ArticleInfo";
+import { PropagateLoader } from "react-spinners";
 
 const ArticlePage = ({ subreddit, setSubreddit }) => {
   const [article, setArticle] = useState();
@@ -23,7 +24,15 @@ const ArticlePage = ({ subreddit, setSubreddit }) => {
   }, []);
 
   if (!article) {
-    return null;
+    return (
+      <PropagateLoader
+        color="#f97316"
+        cssOverride={{}}
+        size={20}
+        speedMultiplier={1}
+        className="w-full flex justify-center"
+      />
+    );
   }
   return (
     <div className="flex bg-neutral-900 w-full">

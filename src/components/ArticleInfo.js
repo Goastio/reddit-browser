@@ -5,7 +5,7 @@ const ArticleInfo = (b) => {
   return (
     <div className="flex w-full p-5">
       <div className="flex md:w-2/3 mx-auto rounded-md bg-white bg-opacity-10">
-        <div className="flex flex-col mx-auto md:items-center p-5 gap-5">
+        <div className="flex flex-col mx-auto md:items-center p-5 gap-5 break-words">
           <div className="flex text-white text-opacity-50 text-sm">
             <a
               href={"https://reddit.com/r/" + b.article.subreddit}
@@ -19,7 +19,7 @@ const ArticleInfo = (b) => {
           <div className="flex text-white text-xl font-semibold">
             {b.article.title}
           </div>
-          <div className="flex">
+          <div className="flex justify-center">
             <img src={b.article.url_overridden_by_dest} alt="" />
             {b.article.secure_media?.reddit_video?.fallback_url && (
               <button
@@ -28,11 +28,13 @@ const ArticleInfo = (b) => {
                     "https://reddit.com" + b.article.permalink;
                 }}
               >
-                <div className="flex text-2xl text-white text-opacity-50 hover:text-orange-400 transition">Watch on Reddit</div>
+                <div className="flex bg-orange-500 p-4 rounded-full text-white">
+                  Watch on Reddit
+                </div>
               </button>
             )}
           </div>
-          <div className="flex break-all text-white text-opacity-50">
+          <div className="flex text-white text-opacity-50">
             {b.article.selftext}
           </div>
           <div className="flex w-full justify-end gap-5">
@@ -46,9 +48,9 @@ const ArticleInfo = (b) => {
             </div>
           </div>
 
-          <div className="flex flex-col bg-white bg-opacity-10 rounded-md p-5 text-white justify-end break-all gap-5">
-            <div className="text-opacity-75">Comments</div>
-            <div className="flex text-white flex-col gap-5">
+          <div className="flex flex-col w-full bg-white bg-opacity-10 rounded-md p-5 text-white gap-5">
+            <div className="text-opacity-75 font-bold">Comments</div>
+            <div className="flex text-white flex-col break-words gap-5">
               {b.comments.slice(0, 10).map((comment) => {
                 const { data } = comment;
                 return (
