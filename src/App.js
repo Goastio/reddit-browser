@@ -1,7 +1,7 @@
 import "./index.css";
 import { useState, useEffect } from "react";
 import Home from "./pages/Home";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import ArticlePage from "./pages/ArticlePage";
 import Nav from "./components/Nav";
 
@@ -9,6 +9,9 @@ function App() {
   const [articles, setArticles] = useState([]);
   const [subreddit, setSubreddit] = useState("popular");
 
+  const location = useLocation();
+
+  console.log(location);
   useEffect(() => {
     fetch("https://www.reddit.com/r/" + subreddit + ".json").then((res) => {
       if (res.status !== 200) {
@@ -26,12 +29,14 @@ function App() {
   return (
     <>
       <div className="min-h-screen bg-neutral-900 flex flex-col">
-        <Nav
-          articles={articles}
-          setArticles={setArticles}
-          subreddit={subreddit}
-          setSubreddit={setSubreddit}
-        />
+        {location.pathname === "/" && (
+          <Nav
+            articles={articles}
+            setArticles={setArticles}
+            subreddit={subreddit}
+            setSubreddit={setSubreddit}
+          />
+        )}
         <div className="flex w-full my-auto">
           <div className="flex w-full md:w-2/3 mx-auto">
             <Routes>
