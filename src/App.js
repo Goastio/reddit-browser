@@ -11,7 +11,6 @@ function App() {
 
   const location = useLocation();
 
-  console.log(location);
   useEffect(() => {
     fetch("https://www.reddit.com/r/" + subreddit + ".json").then((res) => {
       if (res.status !== 200) {

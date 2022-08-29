@@ -1,9 +1,7 @@
 import React from "react";
 import Arts from "../components/Arts";
 
-
 const Home = ({ articles, subreddit, setSubreddit }) => {
-
 
   return (
     <>

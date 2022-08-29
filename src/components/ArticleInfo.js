@@ -24,11 +24,13 @@ const ArticleInfo = (b) => {
             {b.article.secure_media?.reddit_video?.fallback_url && (
               <button
                 onClick={() => {
-                  window.location.href =
-                    "https://reddit.com" + b.article.permalink;
+                  window.open(
+                    "https://reddit.com" + b.article.permalink,
+                    "_blank"
+                  );
                 }}
               >
-                <div className="flex bg-orange-500 p-4 rounded-full text-white">
+                <div className="flex bg-orange-500 p-2.5 rounded-full text-white">
                   Watch on Reddit
                 </div>
               </button>
