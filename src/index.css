@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.selfhtml ul {
+  list-style-type: square;
+  padding: 0.625rem;
+}
+
+.selfhtml li {
+  padding: 0.625rem;
+}

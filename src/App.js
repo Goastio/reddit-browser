@@ -36,8 +36,8 @@ function App() {
             setSubreddit={setSubreddit}
           />
         )}
-        <div className="flex w-full my-auto">
-          <div className="flex w-full md:w-2/3 mx-auto">
+        <div className="flex w-full">
+          <div className="flex w-full mx-auto">
             <Routes>
               <Route
                 exact

@@ -1,10 +1,14 @@
 import { IoIosTrendingUp } from "react-icons/io";
 import { FaComments } from "react-icons/fa";
+import unescape from "lodash.unescape";
 
 const ArticleInfo = (b) => {
+  if (!b?.article) {
+    return null;
+  }
   return (
     <div className="flex w-full p-5">
-      <div className="flex md:w-2/3 mx-auto rounded-md bg-white bg-opacity-10">
+      <div className="flex mx-auto w-full max-w-screen-lg rounded-md bg-white bg-opacity-10">
         <div className="flex flex-col mx-auto md:items-center p-5 gap-5 break-words">
           <div className="flex text-white text-opacity-50 text-sm">
             <a
@@ -16,28 +20,50 @@ const ArticleInfo = (b) => {
               {b.article.subreddit_name_prefixed}
             </a>
           </div>
-          <div className="flex text-white text-xl font-semibold">
-            {b.article.title}
-          </div>
-          <div className="flex justify-center">
-            <img src={b.article.url_overridden_by_dest} alt="" />
-            {b.article.secure_media?.reddit_video?.fallback_url && (
-              <button
-                onClick={() => {
-                  window.open(
-                    "https://reddit.com" + b.article.permalink,
-                    "_blank"
-                  );
+          <div className="flex bg-white bg-opacity-10 w-full flex-col rounded-md p-5 gap-2.5">
+            <div className="flex text-white text-xl font-semibold justify-center self-center">
+              {b.article.title}
+            </div>
+            <div className="flex justify-center">
+              {!b.article.url_overridden_by_dest?.includes("redd.it") ? (
+                <button
+                  onClick={() => {
+                    window.open(
+                      "https://reddit.com" + b.article.permalink,
+                      "_blank"
+                    );
+                  }}
+                >
+                  <div className="flex bg-orange-500 hover:bg-opacity-90 transition p-2.5 rounded-full text-white">
+                    View on Reddit
+                  </div>
+                </button>
+              ) : (
+                <img src={b.article.url_overridden_by_dest} alt="" />
+              )}
+              {b.article.secure_media?.reddit_video?.fallback_url && (
+                <button
+                  onClick={() => {
+                    window.open(
+                      "https://reddit.com" + b.article.permalink,
+                      "_blank"
+                    );
+                  }}
+                >
+                  <div className="flex bg-orange-500 hover:bg-opacity-90 transition p-2.5 rounded-full text-white">
+                    Watch on Reddit
+                  </div>
+                </button>
+              )}
+            </div>
+            {b.article.selftext_html && (
+              <div
+                className="flex flex-col text-white text-opacity-80 selfhtml px-5"
+                dangerouslySetInnerHTML={{
+                  __html: unescape(b.article.selftext_html),
                 }}
-              >
-                <div className="flex bg-orange-500 p-2.5 rounded-full text-white">
-                  Watch on Reddit
-                </div>
-              </button>
+              ></div>
             )}
-          </div>
-          <div className="flex text-white text-opacity-50">
-            {b.article.selftext}
           </div>
           <div className="flex w-full justify-end gap-5">
             <div className="flex text-white text-opacity-50 items-center gap-1 p-2.5 bg-white bg-opacity-10 rounded-md">
@@ -49,16 +75,18 @@ const ArticleInfo = (b) => {
               {b.article.num_comments}
             </div>
           </div>
-
           <div className="flex flex-col w-full bg-white bg-opacity-10 rounded-md p-5 text-white gap-5">
             <div className="text-opacity-75 font-bold">Comments</div>
-            <div className="flex text-white flex-col break-words gap-5">
+            <div className="flex text-white text-sm flex-col break-words gap-5">
               {b.comments.slice(0, 10).map((comment) => {
                 const { data } = comment;
                 return (
-                  <div key={data.id} className="">
-                    <li>{data.body}</li>
-                  </div>
+                  <div
+                    className="flex flex-col text-white text-opacity-80 selfhtml px-5"
+                    dangerouslySetInnerHTML={{
+                      __html: unescape(data.body),
+                    }}
+                  ></div>
                 );
               })}
             </div>

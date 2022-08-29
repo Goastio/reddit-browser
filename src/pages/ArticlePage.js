@@ -30,7 +30,7 @@ const ArticlePage = ({ subreddit, setSubreddit }) => {
         cssOverride={{}}
         size={20}
         speedMultiplier={1}
-        className="w-full flex justify-center"
+        className="w-full h-screen flex items-center justify-center"
       />
     );
   }
