@@ -77,11 +77,11 @@ const ArticleInfo = (b) => {
             </div>
           </div>
           <div className="flex flex-col w-full bg-white bg-opacity-10 rounded-md p-5 text-white gap-5">
-            <div className="flex w-full items-center gap-5">
+            <div className="flex w-full justify-between items-center gap-5">
               <div className="text-opacity-90 text-white font-bold">
                 Top Comments
               </div>
-              <div className="text-xs py-0.5 px-1 bg-white bg-opacity-10 md:py-1 md:px-2 rounded-full">
+              <div className="text-xs p-1 flex bg-white bg-opacity-10 md:px-2 rounded-full">
                 <button
                   onClick={() => {
                     window.open(
