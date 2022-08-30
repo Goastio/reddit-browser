@@ -1,14 +1,14 @@
 import { IoIosTrendingUp } from "react-icons/io";
 import { FaComments } from "react-icons/fa";
 import unescape from "lodash.unescape";
-import { data } from "autoprefixer";
+import { comment } from "postcss";
 
 const ArticleInfo = (b) => {
   if (!b?.article) {
     return null;
   }
   return (
-    <div className="flex w-full p-5">
+    <div key={b.id} className="flex w-full p-5">
       <div className="flex mx-auto w-full max-w-screen-md rounded-md bg-white bg-opacity-10">
         <div className="flex flex-col mx-auto md:items-center p-5 gap-5 break-words">
           <div className="flex text-white text-opacity-50 text-sm">
@@ -97,10 +97,11 @@ const ArticleInfo = (b) => {
               </div>
             </div>
             <div className="flex text-white text-sm flex-col break-words gap-5">
-              {b.comments.slice(0, 10).map((comment) => {
+              {b.comments.slice(0, 10).map((comment, index) => {
                 const { data } = comment;
                 return (
                   <div
+                    key={index}
                     className="flex flex-col text-white text-opacity-80 selfhtml"
                     dangerouslySetInnerHTML={{
                       __html: unescape(data.body),
