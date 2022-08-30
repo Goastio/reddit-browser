@@ -2,7 +2,7 @@ import debounce from "lodash.debounce";
 
 const Nav = ({ setSubreddit, subreddit }) => {
   const updateSubreddit = (e) => setSubreddit(e.target.value);
-  const debouncedOnChange = debounce(updateSubreddit, 1000);
+  const debouncedOnChange = debounce(updateSubreddit, 500);
 
   return (
     <div className="flex justify-center w-full p-5 bg-neutral-800">

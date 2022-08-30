@@ -11,19 +11,7 @@ function App() {
 
   const location = useLocation();
 
-  useEffect(() => {
-    fetch("https://www.reddit.com/r/" + subreddit + ".json").then((res) => {
-      if (res.status !== 200) {
-        console.log("error");
-        return;
-      }
-      res.json().then((data) => {
-        if (data != null) {
-          setArticles(data.data.children);
-        }
-      });
-    });
-  }, [subreddit]);
+
 
   return (
     <>

@@ -16,7 +16,7 @@ const Arts = (b) => {
               href={"https://reddit.com/r/" + b.article.subreddit}
               target="_blank"
               rel="noreferrer"
-              className="hover:text-orange-400 transition"
+              className="hover:text-orange-500 transition"
             >
               r/{b.article.subreddit}
             </a>

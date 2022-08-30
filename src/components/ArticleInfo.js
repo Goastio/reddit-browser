@@ -1,7 +1,6 @@
 import { IoIosTrendingUp } from "react-icons/io";
 import { FaComments } from "react-icons/fa";
 import unescape from "lodash.unescape";
-import { comment } from "postcss";
 
 const ArticleInfo = (b) => {
   if (!b?.article) {
@@ -16,7 +15,7 @@ const ArticleInfo = (b) => {
               href={"https://reddit.com/r/" + b.article.subreddit}
               target="_blank"
               rel="noreferrer"
-              className="hover:text-orange-400 transition"
+              className="hover:text-orange-500 transition"
             >
               {b.article.subreddit_name_prefixed}
             </a>
