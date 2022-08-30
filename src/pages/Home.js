@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { PropagateLoader } from "react-spinners";
 import Arts from "../components/Arts";
 
 const Home = ({ articles, setArticles, subreddit, setSubreddit }) => {
@@ -16,6 +17,18 @@ const Home = ({ articles, setArticles, subreddit, setSubreddit }) => {
     });
   }, [subreddit]);
 
+
+  if (!articles.length) {
+    return (
+      <PropagateLoader
+        color="#f97316"
+        cssOverride={{}}
+        size={20}
+        speedMultiplier={1}
+        className="w-full h-screen flex items-center justify-center"
+      />
+    );
+  }
 
   return (
     <>

@@ -1,5 +1,5 @@
 import "./index.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Home from "./pages/Home";
 import { Route, Routes, useLocation } from "react-router-dom";
 import ArticlePage from "./pages/ArticlePage";
