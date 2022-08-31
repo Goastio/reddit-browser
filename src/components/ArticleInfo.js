@@ -9,7 +9,7 @@ const ArticleInfo = (b) => {
   return (
     <div key={b.id} className="flex w-full">
       <div className="flex mx-auto w-full max-w-screen-md bg-white bg-opacity-10">
-        <div className="flex flex-col mx-auto md:items-center p-5 gap-5 break-words">
+        <div className="flex flex-col w-full md:items-center gap-5 p-5 break-words">
           <div className="flex text-white text-opacity-50 text-sm">
             <a
               href={"https://reddit.com/r/" + b.article.subreddit}
@@ -39,7 +39,7 @@ const ArticleInfo = (b) => {
                   </div>
                 </button>
               ) : (
-                <img src={b.article.url_overridden_by_dest} alt="" />
+                <img className="justify-center inline-block" src={b.article.url_overridden_by_dest} alt="" />
               )}
               {b.article.secure_media?.reddit_video?.fallback_url && (
                 <button
