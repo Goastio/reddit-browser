@@ -7,8 +7,8 @@ const ArticleInfo = (b) => {
     return null;
   }
   return (
-    <div key={b.id} className="flex w-full p-5">
-      <div className="flex mx-auto w-full max-w-screen-md rounded-md bg-white bg-opacity-10">
+    <div key={b.id} className="flex w-full">
+      <div className="flex mx-auto w-full max-w-screen-md bg-white bg-opacity-10">
         <div className="flex flex-col mx-auto md:items-center p-5 gap-5 break-words">
           <div className="flex text-white text-opacity-50 text-sm">
             <a
